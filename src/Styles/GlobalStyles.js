@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import Theme from './Theme';
 
 
 export default StyleSheet.create({
@@ -11,6 +12,30 @@ export default StyleSheet.create({
       paddingLeft:20,
       justifyContent:'flex-start',
       alignItems:'center',
-      backgroundColor: '#E9E9E9',
+      backgroundColor: Theme.colors.background,
+    },
+
+    title: {
+      fontSize: 24,
+      fontWeight: 'bold',
+      marginBottom: 10,
+      marginTop: 10,
+      textAlign: 'center'
+    },
+
+    buttonText: {
+    fontSize: 20,
+    textAlign: 'center'
+    },
+    droidSafeArea: {
+      flex: 1,
+      paddingTop: Platform.OS === 'android' ? 40 : 0
+    },
+    button: {
+      paddingVertical: 15,
+      paddingHorizontal: 35,
+      borderRadius: 20,
+      marginVertical: 10,
+      marginHorizontal: 10
     },
   });

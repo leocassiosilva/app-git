@@ -1,17 +1,19 @@
 import React from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 import { AntDesign } from '@expo/vector-icons'; 
+import Icon from 'react-native-vector-icons/FontAwesome';
+import Theme from '../Styles/Theme';
 
-export function Input({placeholder}){ 
+export function Input({placeholder, onPress, onChangeText}){ 
     
     return(
-        <View style={styles.contanerInput}>
+        <View style={styles.containerInput}>
             <TextInput 
                 style={styles.input}
                 placeholder={placeholder}
-                />
+                onChangeText={onChangeText}/>
             
-            <TouchableOpacity style={styles.btn}>
+            <TouchableOpacity style={styles.btn} onPress={onPress}>
                 <AntDesign name="right" size={28} color={'#B2B2B2'}/>
             </TouchableOpacity>
         </View>
@@ -20,19 +22,24 @@ export function Input({placeholder}){
 
 const styles = StyleSheet.create({
 
-    contanerInput:{
-        margin:5,
+    containerInput:{
+        marginTop:40,
+        width: '90%',
+        height: 65,
+        backgroundColor: '#FFFFFF',
         flexDirection:'row',
-        alignItems:'center'
+        alignItems: 'center',
+        borderRadius: 5,
     },
     
     input:{
-        height:56,
-        width: 357,
+        flex:1,
+        height:'100%',
         paddingLeft: 20,
-        color: 'gray',
+        color: Theme.colors.gray,
         fontSize: 17,
         backgroundColor: '#FFFFFF',
+        fontFamily:Theme.fonts.rebotoRegular,
 
     }, 
     btn:{
