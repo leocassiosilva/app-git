@@ -12,7 +12,7 @@ export function Input({placeholder}){
                 />
             
             <TouchableOpacity style={styles.btn}>
-                <AntDesign name='right'></AntDesign>
+                <AntDesign name="right" size={28} color={'#B2B2B2'}/>
             </TouchableOpacity>
         </View>
     )
@@ -25,12 +25,12 @@ const styles = StyleSheet.create({
         flexDirection:'row',
         alignItems:'center'
     },
+    
     input:{
         height:56,
         width: 357,
         paddingLeft: 20,
         color: 'gray',
-        fontFamily: 'reboto',
         fontSize: 17,
         backgroundColor: '#FFFFFF',
 
