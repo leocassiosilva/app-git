@@ -5,7 +5,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import Theme from '../Styles/Theme';
 
 
-export function ItemUser({name}){
+export function ItemUser({name, onPress}){
     return (
         <View style={styles.container}>
             
@@ -15,8 +15,8 @@ export function ItemUser({name}){
             <View style={styles.separador}></View>
 
             <View style={styles.viewButton}>
-                <TouchableOpacity style={styles.btn}>
-                    <Icon name="eye"  size={25} color={Theme.colors.gray} />
+                <TouchableOpacity style={styles.btn} onPress={onPress}>
+                    <Icon name="eye"  size={25} color={Theme.colors.gray}/>
                 </TouchableOpacity>
             </View>
         </View>

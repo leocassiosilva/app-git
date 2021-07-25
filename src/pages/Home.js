@@ -11,7 +11,14 @@ import Theme from '../Styles/Theme';
 export function Home( { navigation} ) {
 
     const [nickname, setNickname] = useState(''); 
-    const [users, setUsers] = useState(''); 
+    const [users, setUsers] = useState([]); 
+
+    //Funtion para navigation 
+    function navigationDetails(login){
+      navigation.navigate('Details', {user: login}); 
+    }
+
+
 
     //função assincrona para buscar um user na api 
     async function handleSearchUser () {
@@ -22,6 +29,7 @@ export function Home( { navigation} ) {
         //atribuinto ao data o response 
         const {data} = response; 
 
+        //objeto com os atributos id, nome e login
         const obj = {
           id: data.id, 
           nome: data.name, 
