@@ -14,7 +14,7 @@ export function Input({placeholder, onPress, onChangeText}){
                 onChangeText={onChangeText}/>
             
             <TouchableOpacity style={styles.btn} onPress={onPress}>
-                <AntDesign name="right" size={28} color={'#B2B2B2'}/>
+                <AntDesign name="right" size={25} color={'#B2B2B2'}/>
             </TouchableOpacity>
         </View>
     )

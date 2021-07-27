@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     //stilo do componend 
     container:{
         marginTop:15,
-        width: '90%',
+        width: '80%',
         height: 50,
         backgroundColor:'#DEE4E4',
         flexDirection:'row',

@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet , Platform} from 'react-native';
 import Theme from './Theme';
 
 
@@ -27,10 +27,6 @@ export default StyleSheet.create({
     fontSize: 20,
     textAlign: 'center'
     },
-    droidSafeArea: {
-      flex: 1,
-      paddingTop: Platform.OS === 'android' ? 40 : 0
-    },
     button: {
       paddingVertical: 15,
       paddingHorizontal: 35,
@@ -38,4 +34,8 @@ export default StyleSheet.create({
       marginVertical: 10,
       marginHorizontal: 10
     },
+    droidSafeArea: {
+      flex: 1,
+      paddingTop: Platform.OS === 'android' ? 40 : 0
+  },
   });
