@@ -22,8 +22,6 @@ export function Home( { navigation} ) {
       navigation.navigate('Details', {user: login}); 
     }
 
-
-
     //função assincrona para buscar um user na api 
     async function handleSearchUser () {
       try{
@@ -46,7 +44,7 @@ export function Home( { navigation} ) {
         try{
             await AsyncStorage.setItem(keyAsyncStorage, JSON.stringify( vetData ) );
         }catch(error){
-            Alert.alert("Erro na gravação de contatos");
+            Alert.alert("Erro");
         } 
 
 
@@ -81,8 +79,8 @@ export function Home( { navigation} ) {
     return (
         <View style={GlobalStyles.container}>
           <StatusBar
-        animated={true}
-        backgroundColor="#8257E5"/>
+            animated={true}
+            backgroundColor="#8257E5"/>
           <AntDesign name="github" size={98} color={'#8257E5'} />  
           <Text style={styles.title}>GIT.Networking</Text>
           <Input  placeholder="Informe o nickname do usuário" onChangeText={setNickname}

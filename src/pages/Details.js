@@ -6,6 +6,11 @@ import Theme from '../Styles/Theme';
 
 import { FontAwesome5 } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+
+
+const keyAsyncStorage = "@user:contatos";
 
 
 export function Details({route}) { 
@@ -39,6 +44,12 @@ export function Details({route}) {
         }
     }
 
+    async function deletarUser(id){
+        const newData = user.filter( item => item.id != id );
+          await AsyncStorage.setItem(keyAsyncStorage, JSON.stringify( newData ));
+          setUser(newData); 
+      }
+
     useEffect(()=>{
         const { user  } = route.params;
         carregarUser( user );
@@ -48,7 +59,6 @@ export function Details({route}) {
 
     return (
         <View style={GlobalStyles.container}> 
-            <View style={styles.barra}></View>
 
             <View style={styles.perfil}>
                 <Image style={styles.userLogo} source={{ uri:user.avatar_url }}/>
@@ -79,7 +89,7 @@ export function Details({route}) {
             </View>
 
             <View style={styles.footer}>
-                <TouchableOpacity style={styles.btn}>
+                <TouchableOpacity style={styles.btn}   onPress={() => { deletarUser(user.id); }} >
                     <Text style={styles.texBtn}>Excluir</Text>
                 </TouchableOpacity>
             </View>
