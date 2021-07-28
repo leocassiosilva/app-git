@@ -16,7 +16,7 @@ export function ItemUser({name, onPress}){
 
             <View style={styles.viewButton}>
                 <TouchableOpacity style={styles.btn} onPress={onPress}>
-                    <Icon name="eye"  size={25} color={Theme.colors.gray}/>
+                    <Icon name="eye"  size={20} color={Theme.colors.gray}/>
                 </TouchableOpacity>
             </View>
         </View>
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     //stilo do componend 
     container:{
         marginTop:15,
-        width: '80%',
+        width: '90%',
         height: 50,
         backgroundColor:'#DEE4E4',
         flexDirection:'row',

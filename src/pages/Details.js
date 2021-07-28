@@ -1,5 +1,5 @@
 import React, { useState, useEffect} from 'react';
-import { FlatList, StyleSheet, Text, View, Image } from 'react-native';
+import { FlatList, StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import GlobalStyles from '../Styles/GlobalStyles';
 import api from '../services/api';
 import Theme from '../Styles/Theme';
@@ -75,6 +75,12 @@ export function Details({route}) {
                     </View>
                 </View>
             </View>
+
+            <View style={styles.footer}>
+                <TouchableOpacity style={styles.btn}>
+                    <Text style={styles.texBtn}>Excluir</Text>
+                </TouchableOpacity>
+            </View>
         </View>
     );
 }
@@ -125,5 +131,24 @@ const styles = StyleSheet.create({
         fontSize: 15,
         fontFamily: Theme.fonts.robotoBold,
         color: Theme.colors.black
+    }, 
+    footer:{
+        width:100, 
+        height:200,
+        alignItems: 'center',
+        justifyContent:'flex-end'
     },
+    btn:{
+        backgroundColor:'#8257E5', 
+        width:200, 
+        height:40, 
+        borderRadius:15, 
+        alignItems:'center', 
+        justifyContent:'center'
+    }, 
+    texBtn:{
+        color:'#FFFFFF',
+        fontSize:20, 
+        fontFamily: Theme.fonts.robotoBold,
+    }
 })
