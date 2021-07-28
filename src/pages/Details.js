@@ -48,6 +48,8 @@ export function Details({route}) {
 
     return (
         <View style={GlobalStyles.container}> 
+            <View style={styles.barra}></View>
+
             <View style={styles.perfil}>
                 <Image style={styles.userLogo} source={{ uri:user.avatar_url }}/>
                 <Text style={styles.title}>{user.name}</Text> 
@@ -150,5 +152,6 @@ const styles = StyleSheet.create({
         color:'#FFFFFF',
         fontSize:20, 
         fontFamily: Theme.fonts.robotoBold,
-    }
+    },
+    
 })

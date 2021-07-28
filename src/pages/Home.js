@@ -7,6 +7,7 @@ import api from '../services/api';
 import { ItemUser } from '../components/ItemUser';
 import Theme from '../Styles/Theme';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { StatusBar } from 'expo-status-bar';
 
 export function Home( { navigation} ) {
 
@@ -79,6 +80,9 @@ export function Home( { navigation} ) {
 
     return (
         <View style={GlobalStyles.container}>
+          <StatusBar
+        animated={true}
+        backgroundColor="#8257E5"/>
           <AntDesign name="github" size={98} color={'#8257E5'} />  
           <Text style={styles.title}>GIT.Networking</Text>
           <Input  placeholder="Informe o nickname do usuário" onChangeText={setNickname}
