@@ -9,7 +9,7 @@ import Theme from '../Styles/Theme';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { StatusBar } from 'expo-status-bar';
 
-export function Home( { navigation} ) {
+export function Home({navigation}) {
 
     const keyAsyncStorage = "@user:contatos";
 

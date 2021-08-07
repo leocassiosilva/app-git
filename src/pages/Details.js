@@ -8,12 +8,9 @@ import { FontAwesome5 } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-
-
-const keyAsyncStorage = "@user:contatos";
-
-
-export function Details({route}) { 
+export function Details({navigation, route}) { 
+    
+    const keyAsyncStorage = "@user:contatos";
 
     const [user, setUser] = useState({}); 
 
@@ -45,10 +42,17 @@ export function Details({route}) {
     }
 
     async function deletarUser(id){
-        const newData = user.filter( item => item.id != id );
-          await AsyncStorage.setItem(keyAsyncStorage, JSON.stringify( newData ));
-          setUser(newData); 
-      }
+        try{
+            const retorno = await AsyncStorage.getItem(keyAsyncStorage);
+            const data = JSON.parse(retorno);
+            const newData = data.filter(item => item.id != id);
+            await AsyncStorage.setItem(keyAsyncStorage, JSON.stringify(newData));
+
+            navigation.navigate('Home');
+        } catch(error){
+            console.error(error);
+        }
+    }
 
     useEffect(()=>{
         const { user  } = route.params;
@@ -89,7 +93,7 @@ export function Details({route}) {
             </View>
 
             <View style={styles.footer}>
-                <TouchableOpacity style={styles.btn}   onPress={() => { deletarUser(user.id); }} >
+                <TouchableOpacity style={styles.btn}   onPress={() => deletarUser(user.id)} >
                     <Text style={styles.texBtn}>Excluir</Text>
                 </TouchableOpacity>
             </View>
